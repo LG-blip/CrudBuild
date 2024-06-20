@@ -1,0 +1,23 @@
+version: '3'
+
+services : 
+  db: 
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+
+    environment:
+      POSTGRES_DB: postgresDB 
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: lgpostgres
+    
+
+  adminer:
+    image: adminer # this is an gui to use postgres
+    restart: always
+    ports:
+      - 8080:8080
+
